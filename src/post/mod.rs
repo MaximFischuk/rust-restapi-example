@@ -53,8 +53,16 @@ fn update(post: Json<UpdatePostRequest>, username: Username, connection: Postgre
         .map_err(|_|Status::InternalServerError)
 }
 
+#[delete("/<id>")]
+fn delete(id: i32, username: Username, connection: PostgresDatabaseConnection) -> Result<Status, Status> {
+    let user_id = User::by_name(&username.0[..], &connection).unwrap().id;
+    Post::delete(id, user_id, &connection)
+        .map(|_|Status::Ok)
+        .map_err(|_|Status::NotFound)
+}
+
 pub fn mount(rocket: rocket::Rocket) -> rocket::Rocket {
     rocket
-        .mount("/post", routes![read, create, update])
+        .mount("/post", routes![read, create, update, delete])
         .mount("/posts", routes![list])
 }

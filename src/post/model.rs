@@ -59,4 +59,16 @@ impl Post {
             .map_err(|_|Error::NotFound)
     }
 
+    pub fn delete(post_id: i32, user_id: i32, connection: &PgConnection) -> Result<(), Error> {
+        match diesel::delete(posts::table)
+            .filter(posts::id.eq(post_id))
+            .filter(posts::user_id.eq(user_id))
+            .execute(connection)
+            {
+                Ok(1) => return Ok(()),
+                Ok(_) => return Err(Error::NotFound),
+                Err(error) => return Err(error)
+            }
+    }
+
 }

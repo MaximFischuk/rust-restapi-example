@@ -1,0 +1,189 @@
+{
+	"info": {
+		"_postman_id": "18a49936-86c1-40c1-b77e-4c5525a50c0f",
+		"name": "Rust-RestApi-Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authorization",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"User\",\n\t\"password\": \"12345\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user information",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authentication",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6InNvbWV0ZXh0In0.eyJpc3MiOiJUZXN0QXBwIiwic3ViIjoiVXNlciIsImV4cCI6MTU2Nzk2NjE3N30.ERjqXf7iMgzExgXjpHshtjP6H9i8hfypPVKSmwqkwWc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/user/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get posts list",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authentication",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6InNvbWV0ZXh0In0.eyJpc3MiOiJUZXN0QXBwIiwic3ViIjoiVXNlciIsImV4cCI6MTU2Nzk2NjE3N30.ERjqXf7iMgzExgXjpHshtjP6H9i8hfypPVKSmwqkwWc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new post",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authentication",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6InNvbWV0ZXh0In0.eyJpc3MiOiJUZXN0QXBwIiwic3ViIjoiVXNlciIsImV4cCI6MTU2Nzk2NjE3N30.ERjqXf7iMgzExgXjpHshtjP6H9i8hfypPVKSmwqkwWc",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Some title 2\",\n\t\"body\": \"Lorem ipsum 2\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update existing post",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authentication",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6InNvbWV0ZXh0In0.eyJpc3MiOiJUZXN0QXBwIiwic3ViIjoiVXNlciIsImV4cCI6MTU2Nzk2NjE3N30.ERjqXf7iMgzExgXjpHshtjP6H9i8hfypPVKSmwqkwWc",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 36,\n    \"body\": \"[UPDATED] Lorem ipsum 2\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete post",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authentication",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6InNvbWV0ZXh0In0.eyJpc3MiOiJUZXN0QXBwIiwic3ViIjoiVXNlciIsImV4cCI6MTU2ODEwMTc5OX0.jmgVi-aGqvtcO32cptTM4eFnYXY9LK0_dcXeOdIu1uc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/post/35",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"post",
+						"35"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
